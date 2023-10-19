@@ -1,4 +1,4 @@
-import { getCurrentLanguagePost, BASE_LANG } from "@/api/post";
+import { getCurrentLanguagePost, BASE_LANG } from "@/context/post/api/post";
 import { Post } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 

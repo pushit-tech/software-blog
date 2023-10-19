@@ -1,6 +1,7 @@
 // app/posts/[slug]/page.tsx
 import { allPosts, Post } from 'contentlayer/generated'
-import {findPostBySlug } from '@/utils/post';
+import {findPostBySlug } from '@/context/post/utils/post';
+
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
