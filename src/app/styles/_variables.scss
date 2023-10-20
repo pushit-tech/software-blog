@@ -1,0 +1,20 @@
+// Define base value and ratio for modular scale
+$base: 16px;
+$ratio: 1.5;
+
+// Define modular scale for spacing
+$spacing: (
+  0: 0,
+  1: $base / $ratio,
+  2: $base,
+  3: $base * $ratio,
+  4: $base * $ratio * $ratio,
+  5: $base * $ratio * $ratio * $ratio
+);
+
+// Define CSS variables for spacing
+:root {
+  @each $size, $value in $spacing {
+    --spacing-#{$size}: #{$value};
+  }
+}

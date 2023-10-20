@@ -1,6 +1,8 @@
 import { allPosts, Post } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 
+export type { Post } from "contentlayer/generated";
+
 export const BASE_LANG = "es";
 
 export function getAllPosts() {

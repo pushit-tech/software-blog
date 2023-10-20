@@ -1,16 +1,11 @@
-import { allPosts, Post } from 'contentlayer/generated'
-import { getSortedPost } from '@/context/post/utils/post';
-import PostCard from '@/context/post/components/post-card';
+import { getAllPosts } from "@/context/blog/api/post";
+import PostCardList from "@/context/blog/components/post-list";
 
 export default function Home() {
-  const posts = getSortedPost();
-
+  const posts = getAllPosts();
   return (
-    <div className="mx-auto max-w-xl py-8">
-      <h1 className="mb-8 text-center text-2xl font-black">Next.js + Contentlayer Example</h1>
-      {posts.map((post : Post, idx : number) => (
-        <PostCard key={idx} {...post} />
-      ))}
+    <div>
+      <PostCardList posts={posts} />
     </div>
-  )
+  );
 }
