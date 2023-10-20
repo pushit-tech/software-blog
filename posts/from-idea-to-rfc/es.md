@@ -116,6 +116,7 @@ Enlistado de links relevantes que puedan complementar la idea, incluyendo casos 
 
 Podemos consolidar las secciones de [suposición, objetivo, resultados esperados, y criterios de finalización] en una única sección denominada Hipótesis, mediante una tabla informativa que permite una comprensión rápida y clara de la iniciativa a primera vista.
 
+
 La tabla permite que el lector capture la esencia de la iniciativa de manera eficiente.
 
 > Gracias a [Cheyne Wagner]() por compartir esta valiosa metodología en el uso de la Hipótesis.
