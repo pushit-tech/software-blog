@@ -1,8 +1,8 @@
 ---
-title: Que me quedo del libro de accelereate
-description: Te gustaria enfocarte en lo importante, este libro nos ayuda a entender en que enfocarnos apra tener equipos de alta calidad.
-state: WIP
+title: Evita usar BEM para modificadores
+description: BEM nos ayuda a organiza nuestro codigo, pero no es la solucion para todo revisemos cuando usarlo y cuando evitarlo.
 date: 2023-10-16
+lang: es
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel sapien. Sed auctor, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel sapien. Sed auctor, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel sapien. Sed auctor, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel sapien. Sed auctor, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel sapien. Sed auctor, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel sapien. Sed auctor, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel sapien. Sed auctor, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel sapien. Sed auctor, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel sapien. Sed auctor, velit vel bibendum bibendum, elit elit bibendum quam, vel bibendum ipsum sapien vel

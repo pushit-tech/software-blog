@@ -1,7 +1,6 @@
 ---
 title: De la idea al RFC Estructurando Propuestas en el Mundo del Software
 description: Una guía para documentar y compartir tus ideas de manera efectiva en tu equipo de desarrollo
-state: COMPLETE
 date: 2023-10-09
 ---
 

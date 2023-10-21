@@ -13,7 +13,7 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: { 
       type: 'string', 
-      resolve: (post) => `/posts/${post._raw.sourceFileDir}` 
+      resolve: (post) => `/posts/complete/${post._raw.sourceFileDir}` 
     },
   },
 }))
