@@ -1,16 +1,64 @@
+.post-card {
+  background-color: transparent;
+  border: none;
+  margin: 0px;
+  box-shadow: none;
 
-.post-card__date{
+  &__metadata {
+    display: flex;
     margin: 0px;
     padding: 0px;
     text-align: left;
-
+    font-weight: 200;
+    font-size: 14px;
+    align-items: center;
     dd {
-        margin: 0px;
-        padding: 0px;
+      margin: 0px;
+      margin-right: var(--spacing);
+      padding: 0px;
     }
-}
+  }
 
-.post-card__title{
+  &__body {
+    display: flex;
+    margin-top: var(--spacing);
+  }
+
+  &__content {
+    flex: 1;
+
+    &:is([aria-current], :hover, :active, :focus) {
+      --color: var(--primary);
+      --text-decoration: none;
+    }
+  }
+
+  &__image {
+    width: 112px;
+    height: 112px;
+    background-color: white;
+    margin-left: calc(var(--spacing) * 6);
+  }
+
+  &__title {
     margin-top: var(--spacing-0);
     margin-bottom: var(--spacing-2);
+    font-size: 24px;
+  }
+
+  &__description {
+    font-weight: 200;
+  }
+
+  &__footer {
+    background-color: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 0.9);
+  }
 }
