@@ -1,9 +1,12 @@
-import { allPosts, Post } from "contentlayer/generated";
-import { format, parseISO } from "date-fns";
+import { allPosts } from "contentlayer/generated";
+import {
+  mapPosts,
+  sortPostByDate,
+  getSlugWithLang,
+  isLanguagePath,
+} from "@/context/blog/utils/post";
 
-export type { Post } from "contentlayer/generated";
-
-export const BASE_LANG = "es";
+const postsData = getCurrentLanguagePost();
 
 export function getAllPosts() {
   return mapPosts(allPosts);
@@ -16,13 +19,11 @@ export function getCurrentLanguagePost() {
   return mapPosts(filteredPosts);
 }
 
-const isLanguagePath = (path: string, lang = BASE_LANG) =>
-  path.includes(`/${lang}`);
+export function findPostBySlug(slug: string) {
+  const slugWithLang = getSlugWithLang(slug);
+  return postsData.find((post) => post._raw.flattenedPath === slugWithLang);
+}
 
-const mapPosts = (posts: Post[]) => posts.map(mapPost);
-
-const mapPost = (post: Post) => ({
-  ...post,
-  date: format(parseISO(post.date), "LLLL d, yyyy"),
-});
-
+export function getSortedPost() {
+  return sortPostByDate(postsData);
+}

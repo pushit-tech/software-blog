@@ -1,17 +1,17 @@
-import { Post } from "contentlayer/generated";
 import Link from "next/link";
 import React from "react";
 import { PitTag } from "@/components/tag";
-import { PitAvatar } from "@/components/avatar";
+import { NxtAvatar } from "@/app/components/avatar";
 import "./styles.scss";
+import { MyPost } from "../../types";
 
-export default function PostCard(post: Post) {
+export default function PostCard(post: MyPost) {
   return (
     <article className="post-card">
       <div>
         <dl className="post-card__metadata">
           <dd>
-            <PitAvatar image="./avatar/me_50.webp" size="xs"></PitAvatar>
+            <NxtAvatar src="/me_50.webp" alt="" size="xs"></NxtAvatar>
           </dd>
           <dt data-hidden>Written by</dt>
           <dd>Juan Carlos Vargas</dd>
@@ -30,7 +30,7 @@ export default function PostCard(post: Post) {
       </main>
       <footer className="post-card__footer">
         <PitTag>microfrontends</PitTag>
-        <span>11 min readed</span>
+        <span>{post.readTime} min read</span>
       </footer>
     </article>
   );

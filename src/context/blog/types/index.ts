@@ -1,5 +1,3 @@
-import { Markdown } from "@contentlayer/core/src/data-types";
-
 export type MyMarkdown = {
   /** Raw Markdown source */
   raw: string;
@@ -10,8 +8,9 @@ export type MyMarkdown = {
 export type MyPost = {
   id: string;
   title: string;
+  description: string;
   date: string;
-  body: Markdown;
+  body: MyMarkdown;
   url: string;
-  language: string;
+  readTime: number;
 };

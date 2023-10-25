@@ -5,11 +5,21 @@ const styles = css`
   .pit-avatar {
     border-radius: 50%;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: content-box;
   }
 
   [size="xs"] {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 24px;
+    height: 24px;
+  }
+
+  img {
+    width: 120%;
   }
 `;
 
@@ -24,7 +34,9 @@ export class Avatar extends LitElement {
   render(): TemplateResult {
     return html`
       <div class="pit-avatar" size="${this.size}">
-        <img src="${this.image}" alt="${this.alt}" />
+        <slot>
+          <img src="${this.image}" alt="${this.alt}" />
+        </slot>
       </div>
     `;
   }

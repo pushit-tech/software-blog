@@ -1,26 +1,54 @@
-import { getCurrentLanguagePost, BASE_LANG } from "@/context/blog/api/post";
-import { Post } from "contentlayer/generated";
+import { type Post } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
+import { format, parseISO } from "date-fns";
+import { BASE_LANG } from "@/context/blog/utils/constants";
+import { MyPost } from "../types";
 
-const postsData = getCurrentLanguagePost();
-
-export const getSlugWithLang = (slug: string, lang?: string) => {
-  const langPath = lang ? `/${lang}` : `/${BASE_LANG}`;
+export const getSlugWithLang = (
+  slug: string,
+  lang?: string,
+  baseLang = BASE_LANG
+) => {
+  const langPath = lang ? `/${lang}` : `/${baseLang}`;
   return `${slug}${langPath}`;
 };
 
-export function findPostBySlug(slug: string) {
-  const slugWithLang = getSlugWithLang(slug);
-  return postsData.find((post) => post._raw.flattenedPath === slugWithLang);
-}
+export const isLanguagePath = (path: string, lang = BASE_LANG) =>
+  path.includes(`/${lang}`);
 
-export function getSortedPost() {
-  return sortPostByDate(postsData);
-}
-
-
-const sortPostByDate = (posts: Post[]) => {
-  return posts.sort((a: Post, b: Post) =>
+export const sortPostByDate = (posts: MyPost[]) => {
+  return posts.sort((a: MyPost, b: MyPost) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
 };
+
+export const mapPost = (post: Post): MyPost => ({
+  id: post._id,
+  title: post.title,
+  description: post.description,
+  date: format(parseISO(post.date), "LLLL d, yyyy"),
+  body: post.body,
+  url: post.url,
+  readTime: readingTime(post.body.raw),
+});
+
+export const mapPosts = (posts: Post[]) => posts.map(mapPost);
+
+export function readingTime(
+  text: string,
+  wordsPerMinute: number = 250,
+  extraTimePerImage: number = 0.5,
+  extraTimePerCodeSnippet: number = 2
+) {
+  const noOfWords = text.split(/\s/g).length;
+  const noOfImages = (text.match(/<img /g) || []).length;
+  const noOfCodeSnippets = (text.match(/<code>/g) || []).length;
+
+  const minutes =
+    noOfWords / wordsPerMinute +
+    noOfImages * extraTimePerImage +
+    noOfCodeSnippets * extraTimePerCodeSnippet;
+  const readTime = Math.ceil(minutes);
+
+  return readTime;
+}

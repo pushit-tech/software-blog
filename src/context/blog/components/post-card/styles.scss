@@ -30,6 +30,7 @@
     &:is([aria-current], :hover, :active, :focus) {
       --color: var(--primary);
       --text-decoration: none;
+      --background-color: none;
     }
   }
 
