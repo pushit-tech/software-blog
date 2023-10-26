@@ -1,5 +1,19 @@
 @import "./pit-theme";
 
+body {
+  text-rendering: optimizeLegibility;
+}
+
 [data-hidden] {
   display: none;
+}
+
+.pit-article-container {
+  width: 680px;
+  margin: 0px auto;
+
+  letter-spacing: -0.003em;
+  line-height: 32px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }

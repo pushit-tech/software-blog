@@ -200,7 +200,7 @@
   [data-theme=light],
   :root:not([data-theme=dark]) {
     --background-color: #fff;
-    --color: hsl(205, 20%, 32%);
+    --color: hsl(210, 14%, 95%);
     --h1-color: hsl(205, 30%, 15%);
     --h2-color: #24333e;
     --h3-color: hsl(205, 25%, 23%);
@@ -272,7 +272,7 @@
     --card-sectionning-background-color: #fbfbfc;
     --dropdown-background-color: #fbfbfc;
     --dropdown-border-color: #e1e6eb;
-    --dropdown-box-shadow: var(--card-box-shadow);
+    --dropdown-box-shadow: none;
     --dropdown-color: var(--color);
     --dropdown-hover-background-color: hsl(205, 20%, 94%);
     --modal-overlay-background-color: rgba(213, 220, 226, 0.7);
@@ -287,7 +287,7 @@
   @media only screen and (prefers-color-scheme: dark) {
     :root:not([data-theme]) {
       --background-color: #11191f;
-      --color: hsl(205, 16%, 77%);
+      --color: #D1D1D1;
       --h1-color: hsl(205, 20%, 94%);
       --h2-color: #e1e6eb;
       --h3-color: hsl(205, 18%, 86%);
@@ -360,9 +360,9 @@
       --accordion-active-summary-color: var(--primary);
       --accordion-close-summary-color: var(--color);
       --accordion-open-summary-color: var(--muted-color);
-      --card-background-color: #141e26;
-      --card-border-color: var(--card-background-color);
-      --card-sectionning-background-color: #18232c;
+      --card-background-color: none;
+      --card-border-color: none;
+      --card-sectionning-background-color: none;
       --dropdown-background-color: hsl(205, 30%, 15%);
       --dropdown-border-color: #24333e;
       --dropdown-box-shadow: var(--card-box-shadow);

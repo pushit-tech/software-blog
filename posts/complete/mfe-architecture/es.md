@@ -1,7 +1,7 @@
 ---
 title: Arquitectura Micro-frontends (MFE)
 description: Entendamos la necesidad y el valor que nos da una arquitectura como Microfrontends antes de entrar en su adopcion.
-date: 2023-28-09
+date: 2023-09-28
 ---
 
 Es crucial entender la arquitectura de MFE antes de considerar su adopción en nuestro negocio.

@@ -2,9 +2,10 @@ import { allPosts } from "contentlayer/generated";
 import {
   mapPosts,
   sortPostByDate,
-  getSlugWithLang,
   isLanguagePath,
 } from "@/context/blog/utils/post";
+
+import { BASE_LANG } from "@/context/blog/utils/constants";
 
 const postsData = getCurrentLanguagePost();
 
@@ -19,9 +20,10 @@ export function getCurrentLanguagePost() {
   return mapPosts(filteredPosts);
 }
 
-export function findPostBySlug(slug: string) {
-  const slugWithLang = getSlugWithLang(slug);
-  return postsData.find((post) => post._raw.flattenedPath === slugWithLang);
+export function findPostBySlugAndLanguage(slug: string, language = BASE_LANG) {
+  return postsData.find(
+    (post) => post.slug === slug && post.language === language
+  );
 }
 
 export function getSortedPost() {

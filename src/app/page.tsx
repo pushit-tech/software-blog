@@ -1,8 +1,8 @@
-import { getAllPosts } from "@/context/blog/api/post";
+import { getCurrentLanguagePost } from "@/context/blog/api/post";
 import PostCardList from "@/context/blog/components/post-list";
 
 export default function Home() {
-  const posts = getAllPosts();
+  const posts = getCurrentLanguagePost();
   return (
     <div>
       <PostCardList posts={posts} />

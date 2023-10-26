@@ -8,9 +8,11 @@ export type MyMarkdown = {
 export type MyPost = {
   id: string;
   title: string;
+  slug: string;
   description: string;
   date: string;
   body: MyMarkdown;
   url: string;
   readTime: number;
+  language: string;
 };

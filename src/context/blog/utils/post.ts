@@ -4,15 +4,6 @@ import { format, parseISO } from "date-fns";
 import { BASE_LANG } from "@/context/blog/utils/constants";
 import { MyPost } from "../types";
 
-export const getSlugWithLang = (
-  slug: string,
-  lang?: string,
-  baseLang = BASE_LANG
-) => {
-  const langPath = lang ? `/${lang}` : `/${baseLang}`;
-  return `${slug}${langPath}`;
-};
-
 export const isLanguagePath = (path: string, lang = BASE_LANG) =>
   path.includes(`/${lang}`);
 
@@ -24,13 +15,19 @@ export const sortPostByDate = (posts: MyPost[]) => {
 
 export const mapPost = (post: Post): MyPost => ({
   id: post._id,
+  slug: post._raw.sourceFileDir,
   title: post.title,
   description: post.description,
   date: format(parseISO(post.date), "LLLL d, yyyy"),
   body: post.body,
   url: post.url,
   readTime: readingTime(post.body.raw),
+  language: getCurrentLanguageFromPost(post),
 });
+
+function getCurrentLanguageFromPost(post: Post) {
+  return post._raw.flattenedPath.split("/")[1];
+}
 
 export const mapPosts = (posts: Post[]) => posts.map(mapPost);
 

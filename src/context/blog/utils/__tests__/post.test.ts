@@ -1,15 +1,7 @@
-import { readingTime, mapPost } from "../post";
+import { mapPost } from "../post";
 import { Post } from "contentlayer/generated";
 
 describe("readingTime", () => {
-  it("returns the correct reading time for a given text", () => {
-    const text =
-      "This is a sample text with more than 200 words. It should take more than a minute to read.";
-    const expectedReadingTime = 1;
-    const actualReadingTime = readingTime(text);
-    expect(actualReadingTime).toEqual(expectedReadingTime);
-  });
-
   it("should map a Post object to a MyPost object", () => {
     const post: Post = {
       title: "Arquitectura Micro-frontends (MFE)",

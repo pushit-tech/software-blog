@@ -1,36 +1,45 @@
 // app/posts/[slug]/page.tsx
-import { allPosts, Post } from "contentlayer/generated";
-import { findPostBySlug } from "@/context/blog/utils/post";
+import { allPosts } from "contentlayer/generated";
+import { findPostBySlugAndLanguage } from "@/context/blog/api/post";
+import "./styles.scss";
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
-  const post = findPostBySlug(slug);
+  const post = findPostBySlugAndLanguage(slug);
   if (!post) throw new Error(`Post not found for slug: ${slug}`);
   return { title: post.title };
 };
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
-  const post = findPostBySlug(slug);
-  if (!post) throw new Error(`Post not found for slug: ${slug}`);
+  const post = findPostBySlugAndLanguage(slug);
+
+  if (!post) {
+    return <PostNotFound />;
+  }
 
   return (
-    <article className="mx-auto max-w-xl py-8">
-      <div className="mb-8 text-center">
-        <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
-          {post.date}
-        </time>
-        <h1 className="text-3xl font-bold">{post.title}</h1>
-      </div>
-      <div
-        className="[&>*]:mb-3 [&>*:last-child]:mb-0"
-        dangerouslySetInnerHTML={{ __html: post.body.html }}
-      />
-    </article>
+    <div className="pit-article-container">
+      <article className="pit-post-page">
+        <div className="">
+          <h1 className="pit-post-page__title">{post.title}</h1>
+          <h2 className="pit-post-page__subtitle">{post.description}</h2>
+          <time dateTime={post.date} className="">
+            {post.date}
+          </time>
+        </div>
+        <div
+          className="pit-post-page__content"
+          dangerouslySetInnerHTML={{ __html: post.body.html }}
+        />
+      </article>
+    </div>
   );
 };
+
+const PostNotFound = () => <div>Post not found</div>;
 
 export default PostLayout;
