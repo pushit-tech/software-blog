@@ -1,6 +1,6 @@
 import { css, html, LitElement, TemplateResult } from "lit";
-import { property, customElement } from "lit/decorators.js";
-
+import { property } from "lit/decorators.js";
+import { registerCustomElement } from "../../decorators/register-custom-element";
 const styles = css`
   .pit-avatar {
     border-radius: 50%;
@@ -23,7 +23,7 @@ const styles = css`
   }
 `;
 
-@customElement("pit-avatar")
+@registerCustomElement("pit-avatar")
 export class Avatar extends LitElement {
   static styles = styles;
 

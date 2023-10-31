@@ -5,6 +5,7 @@ import "./styles/_globals.scss";
 import "./styles/_variables.scss";
 import Footer from "./components/footer";
 import TopMenu from "./components/top-menu";
+import App from "./App";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TopMenu></TopMenu>
-        <main className="container">{children}</main>
-        <Footer></Footer>
+        <App>
+          <TopMenu></TopMenu>
+          <main className="container main-content">{children}</main>
+          <Footer></Footer>
+        </App>
       </body>
     </html>
   );

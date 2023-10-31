@@ -1,13 +1,36 @@
-import React from 'react';
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import SocialIcon from "../social-icons";
+import { FormattedMessage } from "react-intl";
+
+import "./styles.scss";
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-white p-4">
-      <div className="flex justify-center space-x-4">
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-        {/* Add more social media links */}
+    <footer className="pit-main-footer">
+      <div className="pit-main-footer__container">
+        <div className="pit-main-footer__icons">
+          <SocialIcon type="github" href="#" />
+          <SocialIcon type="linkedin" href="#" />
+          <SocialIcon type="youtube" href="#" />
+          <SocialIcon type="facebook" href="#" />
+          <SocialIcon type="twitter" href="#" />
+          <SocialIcon type="instagram" href="#" />
+        </div>
+        <div className="pit-main-footer__data">
+          <div>Pushit</div>
+          <div>{` • `}</div>
+          <div>{`© ${new Date().getFullYear()}`}</div>
+          <div>{` • `}</div>
+          <Link href="/">
+            <FormattedMessage
+              id="personal_blog"
+              defaultMessage="Personal blog"
+            />
+          </Link>
+        </div>
       </div>
     </footer>
   );

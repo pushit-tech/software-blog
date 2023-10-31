@@ -22,7 +22,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   }
 
   return (
-    <div className="pit-article-container">
+    <div className="pit-article-layout">
       <article className="pit-post-page">
         <div className="">
           <h1 className="pit-post-page__title">{post.title}</h1>

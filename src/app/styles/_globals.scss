@@ -1,14 +1,27 @@
 @import "./pit-theme";
 
-body {
+:root {
+  --main-header-height: 82px;
+  --main-footer-height: 150px;
+}
+
+html body {
   text-rendering: optimizeLegibility;
+  position: relative;
+  margin-bottom: 150px;
 }
 
 [data-hidden] {
   display: none;
 }
 
-.pit-article-container {
+.main-content {
+  min-height: calc(
+    100vh - var(--main-header-height) - var(--main-footer-height)
+  );
+}
+
+.pit-article-layout {
   width: 680px;
   margin: 0px auto;
 

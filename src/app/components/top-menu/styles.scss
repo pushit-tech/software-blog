@@ -1,0 +1,30 @@
+.pit-main-header {
+  padding-left: calc(var(--spacing) * 3);
+  padding-right: calc(var(--spacing) * 3);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  box-sizing: border-box;
+  height: var(--main-header-height);
+
+  &__logo {
+    &:hover,
+    &:focus {
+      background: transparent;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+
+    li {
+      margin: 0px;
+      padding: 0px;
+    }
+  }
+}

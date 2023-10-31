@@ -1,18 +1,22 @@
 import Link from "next/link";
 import React from "react";
-import { PitLogo } from "@/components/logo";
+import { PitLogo } from "@pit/ui/components/logo";
+import LanguageSwicher from "@/app/components/language-swicher";
+import "./styles.scss";
 
 function TopMenu() {
   return (
-    <nav className="container-fluid">
-      <ul>
+    <nav className="pit-main-header container-fluid">
+      <ul className="pit-main-header__item">
         <li>
-          <PitLogo></PitLogo>
+          <Link href="/" className="pit-main-header__logo">
+            <PitLogo />
+          </Link>
         </li>
       </ul>
-      <ul>
+      <ul className="pit-main-header__item">
         <li>
-          <Link href="">language</Link>
+          <LanguageSwicher />
         </li>
       </ul>
     </nav>

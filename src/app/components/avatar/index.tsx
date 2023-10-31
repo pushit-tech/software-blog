@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { PitAvatar } from "@/components/avatar";
-import { type ComponentSize, COMPONENT_SIZES } from "@/components/types";
+import { PitAvatar } from "@pit/ui/components/avatar";
+import { type ComponentSize, COMPONENT_SIZES } from "@pit/ui/components/types";
 
 interface Params {
   src: string;

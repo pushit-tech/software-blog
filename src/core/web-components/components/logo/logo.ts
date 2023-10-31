@@ -1,7 +1,7 @@
 import { css, html, LitElement, TemplateResult } from "lit";
-import { customElement } from "lit/decorators.js";
+import { registerCustomElement } from "../../decorators/register-custom-element";
 
-@customElement("pit-logo")
+@registerCustomElement("pit-logo")
 export class Logo extends LitElement {
   static styles = css`
     .logo {
@@ -15,8 +15,8 @@ export class Logo extends LitElement {
     }
   `;
 
-      render(): TemplateResult {
-        return html`
+  render(): TemplateResult {
+    return html`
       <strong class="logo"> {push<span class="logo__it">it</span>}</strong>
     `;
   }

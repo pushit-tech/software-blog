@@ -24,11 +24,18 @@
     "incremental": true,
     "plugins": [
       {
-        "name": "next"
+        "name": "next",
+        "transform": "@formatjs/ts-transformer",
+        "import": "transform",
+        "type": "config",
+        "overrideIdFn": "[sha512:contenthash:base64:6]",
+        "ast": true
       }
     ],
     "baseUrl": ".",
     "paths": {
+      "@pit/ui/*" : ["./src/core/web-components/*"],
+      "@content/*" : ["./content/*"],
       "@/*": ["./src/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
