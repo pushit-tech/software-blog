@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { PitTag } from "@pit/ui/components/tag";
-import { NxtAvatar } from "@/app/components/avatar";
+import { NxtAvatar } from "@components/avatar";
 import "./styles.scss";
 import { MyPost } from "../../types";
 

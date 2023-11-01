@@ -3,11 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import SocialIcon from "../social-icons";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import "./styles.scss";
 
 function Footer() {
+  const intl = useIntl();
   return (
     <footer className="pit-main-footer">
       <div className="pit-main-footer__container">
@@ -26,8 +27,9 @@ function Footer() {
           <div>{` • `}</div>
           <Link href="/">
             <FormattedMessage
-              id="personal_blog"
+              description="footer application blog name"
               defaultMessage="Personal blog"
+              id="Jr67Rc"
             />
           </Link>
         </div>

@@ -35,6 +35,7 @@
     "baseUrl": ".",
     "paths": {
       "@pit/ui/*" : ["./src/core/web-components/*"],
+      "@components/*" : ["./src/components/*"],
       "@content/*" : ["./content/*"],
       "@/*": ["./src/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { PitLogo } from "@pit/ui/components/logo";
-import LanguageSwicher from "@/app/components/language-swicher";
+import LanguageSwicher from "@components/language-swicher";
 import "./styles.scss";
 
 function TopMenu() {

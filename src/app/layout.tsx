@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "@picocss/pico/css/pico.min.css";
 import "./styles/_globals.scss";
 import "./styles/_variables.scss";
-import Footer from "./components/footer";
-import TopMenu from "./components/top-menu";
-import App from "./App";
+import Footer from "@components/footer";
+import TopMenu from "@components/top-menu";
+import App from "@components/App";
 
 const inter = Inter({ subsets: ["latin"] });
 
