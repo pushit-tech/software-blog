@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@picocss/pico/css/pico.min.css";
-import "./styles/_globals.scss";
-import "./styles/_variables.scss";
+import "@/app/styles/_globals.scss";
+import "@/app/styles/_variables.scss";
 import Footer from "@components/footer";
 import TopMenu from "@components/top-menu";
 import App from "@components/App";
-
+import { LANGUAGES } from "@/locales/model";
 const inter = Inter({ subsets: ["latin"] });
+
+export async function generateStaticParams() {
+  return [{ lang: LANGUAGES.ENGLISH }, { lang: LANGUAGES.SPANISH }];
+}
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,13 +20,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { lang: string };
 }) {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body className={inter.className}>
-        <App>
+        <App params={{ lang: params.lang }}>
           <TopMenu></TopMenu>
           <main className="container main-content">{children}</main>
           <Footer></Footer>

@@ -1,26 +1,23 @@
+import { Locales, convertLocaleToISO, LANGUAGES } from "@/locales/model";
 import { allPosts } from "contentlayer/generated";
-import {
-  mapPosts,
-  sortPostByDate,
-  isLanguagePath,
-} from "@/context/blog/utils/post";
+import { mapPosts, sortPostByDate } from "@/context/blog/utils/post";
 
-import { BASE_LANG } from "@/context/blog/utils/constants";
-
-const postsData = getCurrentLanguagePost();
+const postsData = getAllPostsFromCurrentLanguage();
 
 export function getAllPosts() {
   return mapPosts(allPosts);
 }
 
-export function getCurrentLanguagePost() {
-  const filteredPosts = allPosts.filter((post) =>
-    isLanguagePath(post._raw.flattenedPath)
-  );
+export function getAllPostsFromCurrentLanguage(language = LANGUAGES.ENGLISH) {
+  const lang = convertLocaleToISO(language);
+  const filteredPosts = allPosts.filter((post) => {
+    const path = post._raw.flattenedPath;
+    return path.includes(`${lang}`);
+  });
   return mapPosts(filteredPosts);
 }
 
-export function findPostBySlugAndLanguage(slug: string, language = BASE_LANG) {
+export function findPostBySlugAndLanguage(slug: string, language: string) {
   return postsData.find(
     (post) => post.slug === slug && post.language === language
   );

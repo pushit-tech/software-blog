@@ -76,7 +76,12 @@ const standardCustomElement = (
  */
 export const registerCustomElement =
   (tagName: string) =>
-  (classOrDescriptor: Constructor<HTMLElement> | ClassDescriptor) =>
-    typeof classOrDescriptor === "function"
+  (classOrDescriptor: Constructor<HTMLElement> | ClassDescriptor) => {
+    if (typeof window == "undefined") {
+      return;
+    }
+
+    return typeof classOrDescriptor === "function"
       ? legacyCustomElement(tagName, classOrDescriptor)
       : standardCustomElement(tagName, classOrDescriptor);
+  };

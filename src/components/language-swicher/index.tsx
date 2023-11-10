@@ -1,11 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { FormattedMessage } from "react-intl";
 
 const LanguageSwicher = () => {
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const newLanguage = e.target.value;
+  };
+
   return (
-    <select data-size="sm">
+    <select data-size="sm" onChange={handleChange}>
       <option value="en">
         <FormattedMessage
           description="English text to change language"
@@ -13,7 +17,7 @@ const LanguageSwicher = () => {
           id="2WMlTH"
         />
       </option>
-      <option value="es">
+      <option value="us">
         <FormattedMessage
           description="Spanish text to change language"
           id="7ZhQJE"

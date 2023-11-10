@@ -10,7 +10,7 @@
     "test:e2e": "playwright test",
     "test:unit": "jest",
     "test:coverage": "jest --coverage",
-    "extract:i18n": "formatjs extract './src/**/*.{js,ts,tsx}' --ignore='**/*.d.ts' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file src/locales/langs/en.json",
+    "extract:i18n": "formatjs extract './src/**/*.{js,ts,tsx}' --ignore='**/*.d.ts' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file src/locales/langs/en-US.json",
     "compile:i18n": "formatjs compile-folder --ast --format simple src/locales/langs src/locales/compiled-langs",
     "i18n": "bun extract:i18n && npm run compile:i18n"
   },
@@ -21,6 +21,7 @@
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "lit": "^3.0.0",
+    "negotiator": "^0.6.3",
     "next": "13.5.5",
     "next-contentlayer": "^0.3.4",
     "react": "^18",

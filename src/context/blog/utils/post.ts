@@ -1,11 +1,7 @@
 import { type Post } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import { format, parseISO } from "date-fns";
-import { BASE_LANG } from "@/context/blog/utils/constants";
 import { MyPost } from "../types";
-
-export const isLanguagePath = (path: string, lang = BASE_LANG) =>
-  path.includes(`/${lang}`);
 
 export const sortPostByDate = (posts: MyPost[]) => {
   return posts.sort((a: MyPost, b: MyPost) =>

@@ -1,3 +1,5 @@
+"use client";
+
 //reference from https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/main/components/social-icons/index.tsx
 import {
   Github,
@@ -7,7 +9,7 @@ import {
   Twitter,
   Instagram,
 } from "./social-icons";
-import { PitLink } from "@pit/ui/components/link";
+
 const components = {
   facebook: Facebook,
   github: Github,
@@ -21,15 +23,22 @@ type SocialIconProps = {
   type: keyof typeof components;
   href: string | undefined;
   size?: number;
+  width?: number;
+  height?: number;
 };
 
-const SocialIcon = ({ type, href, size = 8 }: SocialIconProps) => {
+const SocialIcon = ({
+  type,
+  href,
+  width = 24,
+  height = 24,
+}: SocialIconProps) => {
   const SocialSvg = components[type];
 
   return (
     <a href={href}>
       <span data-hidden>{type}</span>
-      <SocialSvg width={24} height={24} />
+      <SocialSvg width={width} height={height} />
     </a>
   );
 };
